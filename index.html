@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Streaming Test</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    h1 { color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Audio Streaming Test</h1>
+  <!-- The audio element points to our streaming endpoint -->
+  <audio id="audioPlayer" controls preload="metadata">
+    <source src="http://localhost:8080/audio/test" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const audioPlayer = document.getElementById("audioPlayer");
+
+    // Log the current time to help you see when scrubbing occurs.
+    audioPlayer.addEventListener('timeupdate', () => {
+      console.log(`Current playback time: ${audioPlayer.currentTime.toFixed(2)}s`);
+    });
+
+    // Optional: Add a custom slider for scrubbing.
+    const slider = document.createElement('input');
+    slider.type = 'range';
+    slider.min = 0;
+    slider.max = 100;
+    slider.value = 0;
+    slider.style.width = '100%';
+    document.body.appendChild(slider);
+
+    // When the slider value changes, update the audio playback position.
+    slider.addEventListener('input', () => {
+      if (audioPlayer.duration) {
+        audioPlayer.currentTime = (slider.value / 100) * audioPlayer.duration;
+      }
+    });
+
+    // Update the slider as the audio plays.
+    audioPlayer.addEventListener('timeupdate', () => {
+      if (audioPlayer.duration) {
+        slider.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      }
+    });
+  </script>
+</body>
+</html>
+
