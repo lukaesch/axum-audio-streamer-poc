@@ -97,4 +97,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🎥 Demo
 
-[Add a link to your Twitter video demonstration here]
+[[Video](https://x.com/Lukaesch/status/1889780934540460400)]
