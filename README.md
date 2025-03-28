@@ -98,3 +98,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🎥 Demo
 
 [[Video](https://x.com/Lukaesch/status/1889780934540460400)]
+[[Reallife application by Audioscrape](https://www.audioscrape.com)]
